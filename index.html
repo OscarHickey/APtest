@@ -1,11 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>replit</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-    <script src = "script.js"></script>
+	<center>
+		<header>Which Famous Instagram Accounts Should You Follow?</header>
+
+	
+<label>Name:</label>
+		<input type="text" id="name"><br><br>
+
+
+    <label>Professions/Activities You Enjoy:</label>
+    <select id="enjoyProfessionActivity" >
+      <option value="socialMediaPlatform">Social Media Platform</option>
+      <option value="footballer">Footballer</option>
+      <option value="musician">Musician</option>
+      <option value="actor">Actor</option>
+      <option value="actress">Actress</option>
+      <option value="proWrestler">Professional Wrestler</option>
+      <option value="tvPersonality">Televison Personality</option>
+      <option value="businessWomen">Businesswomen</option>
+      <option value="magazine">Magazine</option>
+      <option value="model">Model</option>
+      <option value="tvPersonality">TV Personality</option>
+      <option value="tvPersonality">TV Personality</option>
+      <option value="tvPersonality">TV Personality</option>
+      <option value="tvPersonality">TV Personality</option>
+      <option value="tvPersonality">TV Personality</option>
+      <option value="tvPersonality">TV Personality</option>
+      <option value="tvPersonality">TV Personality</option>
+
+
+    </select>
+
+
+<br>
+<br>
+<br>
+<label>Influencer Native Country:</label>
+  <select id="activities" >
+    <option value="Swimming">Swimming</option>
+    <option value="Hiking">Hiking</option>
+ </select>
+
+
+ <br>
+ <br>
+ <br>
+  <label>Followers(in Millions):</label>
+    <select id="temperature">
+      <option value="51"> 50°+</option>
+      <option value="49">50°-</option>
+     </select>
+     <br>
+     <br>
+     <br>
+    
+     <div class="outputBox" id="outputBox">
+			<p id="output"> </p>
+		</div>
+   
+    <br>
+    <br>
+    <button onclick = getTrip() >PRESS TO SEE WHAT INSTAGRAM ACCOUNTS YOU MATCHED WITH!</button>
+
+    <p id="feedback"> </p>
+  </center>
+  <script src="script.js"></script>
 </body>
 </html>
