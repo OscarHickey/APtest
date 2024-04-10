@@ -39,25 +39,6 @@ var userCountry = getColumn(url, 6);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function getColumn(url, columnNumber){
     var column = [];
     var table = [];
