@@ -1,0 +1,48 @@
+body{
+    font-family: monospace;
+    background-color: #63bce9;
+  }
+  
+  .outputBox{
+    min-height: 80px;
+    width: 60%;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    padding: 5px;
+  }
+  
+  button{
+    background-color: #faae09;
+    padding: 10px;
+    font-family: monospace;
+    border: none;
+  }
+  
+  header{
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+  
+  select{
+    padding: 10px;
+    font-family: monospace;
+  }
+  
+  input{
+    padding: 10px;
+    font-family: monospace;
+  }
+  
+  .slider{
+    width: 50%; 
+    opacity: 0.7;  
+  }
+  
+  
+  .slider:hover {
+    opacity: 1; 
+  }
+  
+  
