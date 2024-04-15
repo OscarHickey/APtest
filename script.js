@@ -20,6 +20,10 @@ function getColumn(url, columnNumber){
          }
          return column;
       }
+      function getfollowersNum(){
+        document.getElementById("getfollowersNum").innerHTML = document.getElementById("followers").value + "million";
+    
+    }
     
     
 var url = "https://raw.githubusercontent.com/b-mcavoy/datasets/main/Culture%20%26%20Entertainment/Most%20Followed%20Instagram%20Accounts.csv"
@@ -29,11 +33,6 @@ var owner = getColumn(url, 3);
 var followersInMillions = getColumn(url, 4);
 var profession = getColumn(url, 5);
 var userCountry = getColumn(url, 6);
-
-
-
-
-
 
 
 
