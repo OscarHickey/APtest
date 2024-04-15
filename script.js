@@ -37,26 +37,7 @@ var userCountry = getColumn(url, 6);
 
 
 
-
-function getColumn(url, columnNumber){
-    var column = [];
-    var table = [];
-    var request = new XMLHttpRequest();  
-    request.open("GET", url, false);   
-    request.send(null);  
-    var csvData = new Array();
-    var jsonObject = request.responseText.split(/\r?\n|\r/);
-    for (var i = 0; i < jsonObject.length; i++) {
-      csvData.push(jsonObject[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/));
-    }
-    table = csvData;
-    column = getCol(table, columnNumber);
-    return column;
-  }
-  function getCol(matrix, col){
-    var column = [];
-    for(var i=1; i<matrix.length-1; i++){
-       column.push(matrix[i][col]);
-    }
-    return column;
-  }
+if ((food == "Seafood") && (activities == "Swimming") && (temperature > 50)) {
+  //It updates the screen to display the results of where the user should go on vacation.
+   document.getElementById("output").innerHTML = name + ", You should go on vacation to Cancun, Mexico!";
+ }
