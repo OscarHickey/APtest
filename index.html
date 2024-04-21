@@ -21,7 +21,7 @@
     <br>
     <br>
     <select id="enjoyProfessionActivity" >
-      <option value="socialMediaPlatform">Social Media Platform</option>
+      <option value="Options">Options</option>
       <option value="footballer">Footballer</option>
       <option value="musician">Musician</option>
       <option value="actor">Actor</option>
@@ -40,9 +40,10 @@
 <br>
 <br>
  <br>
-  <label> Followers(in Millions): </label>
-        <input type="range" min="0" max="353" value="25" class="slider" oninput= "getfollowersNum" id="followersNum"><br><br>
-        <p id="getfollowersNum"></p>
+  <label for= "followersInMillions"> Followers(in Millions): </label>
+       
+  <input type="range" min="0" max="353" value="25" class="slider" oninput= "followersNum()" id="followers"><br><br>
+ <p id="getfollowersNum"></p>
     
 
      </select>
@@ -59,7 +60,12 @@
     <button onclick = getTrip() >PRESS TO SEE WHAT INSTAGRAM ACCOUNTS YOU MATCHED WITH!</button>
 
     <p id="feedback"> </p>
-  </center>
-  <script src="script.js"></script>
+  
+   
+    <script src="utils.js"></script>
+    <script src="script.js"></script>
+
+</center>
+ 
 </body>
 </html>
