@@ -5,22 +5,26 @@ function getCol(matrix, col){
          }
          return column;
       }
-   
-    
-    function findAccounts(userProfession, userFollowersinMil){
-        var matches = [];
 
+function printUser(followers,job){
+    var matches = [];
+    console.log(matches);
+
+for(var i = 0; i < rank.length; i++){
+    if(profession[i].includes(job) && followersInMillions[i] < followers){
+        matches.push(username[i]);
     }
+}
 
-console.log(matches);
-
-
+}
 function followersNum(){
     document.getElementById("followersShow").innerHTML = document.getElementById("followers").value + " million";
     console.log(document.getElementById("followers").value);
 }
 
-
+function getAccounts(){
+    
+}
 
 
 
