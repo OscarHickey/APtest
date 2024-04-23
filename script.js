@@ -5,14 +5,15 @@ function getCol(matrix, col){
   }
   return column;
 }
-
 function printUser(followers,job){
-var matches = [];
-console.log(matches);
-
+    var matches = [];
+    console.log(matches);
 for(var i = 0; i < rank.length; i++){
-if(profession[i].includes(job) && followersInMillions[i] < followers){
- matches.push(username[i]);
+    if(profession[i].includes(job) && followersInMillions[i] < followers){
+        matches.push(username[i]);
+    }
+}
+
 }
 }
 
