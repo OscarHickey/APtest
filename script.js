@@ -1,29 +1,29 @@
 function getCol(matrix, col){
-         var column = [];
-         for(var i=1; i<matrix.length-1; i++){
-            column.push(matrix[i][col]);
-         }
-         return column;
-      }
+  var column = [];
+  for(var i=1; i<matrix.length-1; i++){
+     column.push(matrix[i][col]);
+  }
+  return column;
+}
 
 function printUser(followers,job){
-    var matches = [];
-    console.log(matches);
+var matches = [];
+console.log(matches);
 
 for(var i = 0; i < rank.length; i++){
-    if(profession[i].includes(job) && followersInMillions[i] < followers){
-        matches.push(username[i]);
-    }
+if(profession[i].includes(job) && followersInMillions[i] < followers){
+ matches.push(username[i]);
+}
 }
 
 }
 function followersNum(){
-    document.getElementById("followersShow").innerHTML = document.getElementById("followers").value + " million";
-    console.log(document.getElementById("followers").value);
+document.getElementById("followersShow").innerHTML = document.getElementById("followers").value + " million";
+console.log(document.getElementById("followers").value);
 }
 
 function getAccounts(){
-    
+
 }
 
 
@@ -41,24 +41,55 @@ var userCountry = getColumn(url, 6);
 
 
 function getColumn(url, columnNumber){
-    var column = [];
-    var table = [];
-    var request = new XMLHttpRequest();  
-    request.open("GET", url, false);   
-    request.send(null);  
-    var csvData = new Array();
-    var jsonObject = request.responseText.split(/\r?\n|\r/);
-    for (var i = 0; i < jsonObject.length; i++) {
-      csvData.push(jsonObject[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/));
+var column = [];
+var table = [];
+var request = new XMLHttpRequest();  
+request.open("GET", url, false);   
+request.send(null);  
+var csvData = new Array();
+var jsonObject = request.responseText.split(/\r?\n|\r/);
+for (var i = 0; i < jsonObject.length; i++) {
+csvData.push(jsonObject[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/));
+}
+table = csvData;
+column = getCol(table, columnNumber);
+return column;
+}
+function getCol(matrix, col){
+var column = [];
+for(var i=1; i<matrix.length-1; i++){
+column.push(matrix[i][col]);
+}
+return column;
+}
+
+
+
+
+
+
+var matches = [];
+
+//The while loop loops through the list to find matches to the user's criteria. 
+var i = 0;
+while(i < teams.length) {
+    if(divisions[i] == division && parseFloat(championshipWins[i]) >= championships){
+        matches.push(teams[i]);
+        nbaImages.push(image[i]);
     }
-    table = csvData;
-    column = getCol(table, columnNumber);
-    return column;
-  }
-  function getCol(matrix, col){
-    var column = [];
-    for(var i=1; i<matrix.length-1; i++){
-       column.push(matrix[i][col]);
-    }
-    return column;
-  }
+    i++;
+}
+console.log(matches)
+
+//It updates the screen to display the results of what NBA team the user should be a fan of.
+if(matches.length == 0){
+    document.getElementById("outputBox").innerHTML = "";
+    var text = document.createElement("p");
+    text.innerHTML = name + ", no one in that division has that many championships!!"
+    var src = document.getElementById("outputBox");
+    src.appendChild(text)
+}
+else {
+//This clears the output box everytime the user puts in new inputs.
+document.getElementById("outputBox").innerHTML = "";
+}
