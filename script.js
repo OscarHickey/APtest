@@ -66,6 +66,7 @@ return column;
 
 
 
+function instagramAccounts(name){
 
 
 var matches = [];
@@ -92,4 +93,5 @@ if(matches.length == 0){
 else {
 //This clears the output box everytime the user puts in new inputs.
 document.getElementById("outputBox").innerHTML = "";
+}
 }
