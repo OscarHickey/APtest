@@ -1,63 +1,70 @@
-function getColumn(url, columnNumber){
-  var column = [];
-  var table = [];
-  var request = new XMLHttpRequest();  
-  request.open("GET", url, false);   
-  request.send(null);  
-  var csvData = new Array();
-  var jsonObject = request.responseText.split(/\r?\n|\r/);
-  for (var i = 0; i < jsonObject.length; i++) {
-  csvData.push(jsonObject[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/));
-  }
-  table = csvData;
-  column = getCol(table, columnNumber);
-  return column;
-  }
-  function getCol(matrix, col){
-  var column = [];
-  for(var i=1; i<matrix.length-1; i++){
-  column.push(matrix[i][col]);
-  }
-  return column;
-  }
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>replit</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<center>
+		<header>Which Famous Instagram Accounts Should You Follow?</header>
+
+	
+    Name: <input type="text" id="name" >
+
+    <br> <br> <br> <br> <br>
+    
+    <label>Professions/Activities You Enjoy:</label>
+    <br>
+    <br>
+    <select id="enjoyProfessionActivity" >
+      <option value="Options">Options</option>
+      <option value="footballer">Footballer</option>
+      <option value="musician">Musician</option>
+      <option value="actor">Actor</option>
+      <option value="actress">Actress</option>
+      <option value="proWrestler">Professional Wrestler</option>
+      <option value="tvPersonality">Televison Personality</option>
+      <option value="businessWomen">Businesswomen</option>
+      <option value="magazine">Magazine</option>
+      <option value="model">Model</option>
+      <option value="tvPersonality">TV Personality</option>
+      
+    </select>
 
 
+<br>
+<br>
+<br>
+ <br>
 
-var url = "https://raw.githubusercontent.com/b-mcavoy/datasets/main/Culture%20%26%20Entertainment/Most%20Followed%20Instagram%20Accounts.csv"
-var rank = getColumn(url, 1);
-var username = getColumn(url, 2);
-var owner = getColumn(url, 3);
-var followersInMillions = getColumn(url, 4);
-var profession = getColumn(url, 5);
-var userCountry = getColumn(url, 6);
+  <label> Followers(in Millions): </label>
+        <input type="range" min="49" max="353" value="25" class="slider" oninput= "followersNum()" id="followers"><br><br>
+        <p id="followersNum"></p>
 
+     </select>
+     <br>
+     <br>
+     <br>
+    
+     <div class="outputBox" id="outputBox">
+			<p id="output"> </p>
+		</div>
+   
+    <br>
+    <br>
+    <button onclick = "printUser(document.getElementById('followers').value, document.getElementById('job').value)" >PRESS TO SEE WHAT INSTAGRAM ACCOUNTS YOU MATCHED WITH!</button>
 
-function followersNum(){
-  console.log(document.getElementById("followersNum").value);
-  document.getElementById("followersNum").innerHTML = document.getElementById("followers").value + " million";
-  }
-
-
-
-function printUser(followers,job, name){
-  var matches = [];
-for(var i = 0; i < rank.length; i++){
-  if(profession[i].includes(job) && followersInMillions[i] < followers){
-      matches.push(username[i]);
-  }
-}
-console.log(matches);
-
-if(matches.length == 0){
-  document.getElementById("outputBox").innerHTML = "";
-  var text = document.createElement("p");
-  text.innerHTML = name + ", no one matches your criteria!!"
-  var src = document.getElementById("outputBox");
-  src.appendChild(text)
-}
-else {
-document.getElementById("outputBox").innerHTML = "";
-}
-}
-
+    <p id feedback> </p>
   
+   
+    <script src="utils.js"></script>
+    <script src="script.js"></script>
+
+</center>
+ 
+</body>
+</html>
