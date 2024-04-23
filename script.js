@@ -18,8 +18,8 @@ if(profession[i].includes(job) && followersInMillions[i] < followers){
 
 }
 function followersNum(){
-document.getElementById("followersShow").innerHTML = document.getElementById("followers").value + " million";
-console.log(document.getElementById("followers").value);
+  console.log(document.getElementById("followersNum").value);
+  document.getElementById("followersNum").innerHTML = document.getElementById("followers").value + " million";
 }
 
 function getAccounts(){
