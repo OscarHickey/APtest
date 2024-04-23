@@ -13,7 +13,8 @@
 		<header>Which Famous Instagram Accounts Should You Follow?</header>
 
 	
-    Name: <input type="text" id="name" >
+<label>Name:</label>
+		<input type="text" id="name"><br><br>
 
 
     <label>Professions/Activities You Enjoy:</label>
@@ -40,7 +41,7 @@
 <br>
  <br>
 
- <label> Followers(in Millions): </label>
+  <label> Followers(in Millions): </label>
         <input type="range" min="49" max="353" value="25" class="slider" oninput= "followersNum()" id="followers"><br><br>
         <p id="followersNum"></p>
 
@@ -55,9 +56,9 @@
    
     <br>
     <br>
-    <button onclick = getAccounts() >PRESS TO SEE WHAT INSTAGRAM ACCOUNTS YOU MATCHED WITH!</button>
+    <button onclick = "getAccounts(document.getElementById('proffesion').value, document.getElementById('enjoyProfessionActivity').value, document.getElementById('followersNum').value)" >PRESS TO SEE WHAT INSTAGRAM ACCOUNTS YOU MATCHED WITH!</button>
 
-    <p id="feedback"> </p>
+    <p id feedback> </p>
   
    
     <script src="utils.js"></script>
