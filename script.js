@@ -32,48 +32,32 @@ var profession = getColumn(url, 5);
 var userCountry = getColumn(url, 6);
 
 
+function followersNum(){
+  console.log(document.getElementById("followersNum").value);
+  document.getElementById("followersNum").innerHTML = document.getElementById("followers").value + " million";
+  }
 
-function printUser(followers,job){
+
+
+function printUser(followers,job, name){
   var matches = [];
-  console.log(matches);
 for(var i = 0; i < rank.length; i++){
   if(profession[i].includes(job) && followersInMillions[i] < followers){
       matches.push(username[i]);
   }
 }
+console.log(matches);
 
-}
-
-function followersNum(){
-console.log(document.getElementById("followersNum").value);
-document.getElementById("followersNum").innerHTML = document.getElementById("followers").value + " million";
-}
-
-
-
-var matches = [];
-
-//The while loop loops through the list to find matches to the user's criteria. 
-var i = 0;
-while(i < teams.length) {
-    if(divisions[i] == division && parseFloat(championshipWins[i]) >= championships){
-        matches.push(teams[i]);
-        nbaImages.push(image[i]);
-    }
-    i++;
-}
-console.log(matches)
-
-//It updates the screen to display the results of what NBA team the user should be a fan of.
 if(matches.length == 0){
-    document.getElementById("outputBox").innerHTML = "";
-    var text = document.createElement("p");
-    text.innerHTML = name + ", no one in that division has that many championships!!"
-    var src = document.getElementById("outputBox");
-    src.appendChild(text)
+  document.getElementById("outputBox").innerHTML = "";
+  var text = document.createElement("p");
+  text.innerHTML = name + ", no one matches your criteria!!"
+  var src = document.getElementById("outputBox");
+  src.appendChild(text)
 }
 else {
-//This clears the output box everytime the user puts in new inputs.
 document.getElementById("outputBox").innerHTML = "";
 }
 }
+
+  
