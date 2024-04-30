@@ -23,12 +23,60 @@ function getColumn(url, columnNumber){
     }
   
   var url = "https://raw.githubusercontent.com/b-mcavoy/datasets/main/Culture%20%26%20Entertainment/Most%20Followed%20Instagram%20Accounts.csv"
-  var rank = getColumn(url, 1);
-  var username = getColumn(url, 2);
-  var owner = getColumn(url, 3);
+  var username = [ "@instagram",
+  "@cristiano",
+  "@arianagrande",
+  "@therock",
+  "@kyliejenner",
+  "@selenagomez",
+  "@kimkardashian",
+  "@leomessi",
+  "@beyonce",
+  "@neymarjr",
+  "@justinbieber",
+  "@natgeo",
+  "@taylorswift",
+  "@kendalljenner",
+  "@jlo",
+  "@nickiminaj",
+  "@nike",
+  "@khloekardashian",
+  "@mileycyrus",
+  "@katyperry",
+  "@kourtneykardash",
+  "@kevinhart4real",
+  "@theellenshow",
+  "@realmadrid",
+  "@fcbarcelona",
+  "@ddlovato",
+  "@badgalriri",
+  "@zendaya",
+  "@victoriassecret",
+  "@iamcardib",
+  "@champagnepapi",
+  "@shakira",
+  "@chrisbrownofficial",
+  "@kingjames",
+  "@billieeilish",
+  "@vindiesel",
+  "@virat.kohli",
+  "@davidbeckham",
+  "@championsleague",
+  "@nasa",
+  "@justintimberlake",
+  "@emmawatson",
+  "@shawnmendes",
+  "@gigihadid",
+  "@priyankachopra",
+  "@9gag",
+  "@ronaldinho",
+  "@maluma",
+  "@camila_cabello",
+  "@deepikapadukone",
+  ]
   var followersInMillions = getColumn(url, 4);
   var profession = getColumn(url, 5);
-  var userCountry = getColumn(url, 6);
+
   
   
   function printUser(followers,job){
@@ -56,4 +104,4 @@ document.getElementById("output").innerHTML = matches.join("<br><br>");
   document.getElementById("followersNum").innerHTML =  followersInput + " million";
   
   }
-  
+
