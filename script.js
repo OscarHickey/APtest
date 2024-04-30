@@ -1,107 +1,182 @@
-
-function getColumn(url, columnNumber){
-    var column = [];
-    var table = [];
-    var request = new XMLHttpRequest();  
-    request.open("GET", url, false);   
-    request.send(null);  
-    var csvData = new Array();
-    var jsonObject = request.responseText.split(/\r?\n|\r/);
-    for (var i = 0; i < jsonObject.length; i++) {
-    csvData.push(jsonObject[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/));
-    }
-    table = csvData;
-    column = getCol(table, columnNumber);
-    return column;
-    }
-    function getCol(matrix, col){
-    var column = [];
-    for(var i=1; i<matrix.length-1; i++){
-    column.push(matrix[i][col]);
-    }
-    return column;
-    }
-  
-  var url = "https://raw.githubusercontent.com/b-mcavoy/datasets/main/Culture%20%26%20Entertainment/Most%20Followed%20Instagram%20Accounts.csv"
-  var username = [ "@instagram",
-  "@cristiano",
-  "@arianagrande",
-  "@therock",
-  "@kyliejenner",
-  "@selenagomez",
-  "@kimkardashian",
-  "@leomessi",
-  "@beyonce",
-  "@neymarjr",
-  "@justinbieber",
-  "@natgeo",
-  "@taylorswift",
-  "@kendalljenner",
-  "@jlo",
-  "@nickiminaj",
-  "@nike",
-  "@khloekardashian",
-  "@mileycyrus",
-  "@katyperry",
-  "@kourtneykardash",
-  "@kevinhart4real",
-  "@theellenshow",
-  "@realmadrid",
-  "@fcbarcelona",
-  "@ddlovato",
-  "@badgalriri",
-  "@zendaya",
-  "@victoriassecret",
-  "@iamcardib",
-  "@champagnepapi",
-  "@shakira",
-  "@chrisbrownofficial",
-  "@kingjames",
-  "@billieeilish",
-  "@vindiesel",
-  "@virat.kohli",
-  "@davidbeckham",
-  "@championsleague",
-  "@nasa",
-  "@justintimberlake",
-  "@emmawatson",
-  "@shawnmendes",
-  "@gigihadid",
-  "@priyankachopra",
-  "@9gag",
-  "@ronaldinho",
-  "@maluma",
-  "@camila_cabello",
-  "@deepikapadukone",
-  ]
-  var followersInMillions = getColumn(url, 4);
-  var profession = getColumn(url, 5);
-
-  
-  
-  function printUser(followers,job){
-    var matches = [];
-  for(var i = 0; i < rank.length; i++){
-    if(profession[i].includes(job) && parseFloat(followersInMillions[i]) >= parseFloat(followers)){
-        matches.push(username[i]);
-    }
-  }
- if (matches.length == 0){
-    document.getElementById("output").innerHTML = "No one in fits that criteria!!"
-    }
-
-    else{
-document.getElementById("output").innerHTML = matches.join("<br><br>");
+//this dataset was provided by code.org and documentation can be found here: https://github.com/b-mcavoy/datasets/
+var username = [
+"@instagram",
+"@cristiano",
+"@arianagrande",
+"@therock",
+"@kyliejenner",
+"@selenagomez",
+"@kimkardashian",
+"@leomessi",
+"@beyonce",
+"@neymarjr",
+"@justinbieber",
+"@natgeo",
+"@taylorswift",
+"@kendalljenner",
+"@jlo",
+"@nickiminaj",
+"@nike",
+"@khloekardashian",
+"@mileycyrus",
+"@katyperry",
+"@kourtneykardash",
+"@kevinhart4real",
+"@theellenshow",
+"@realmadrid",
+"@fcbarcelona",
+"@ddlovato",
+"@badgalriri",
+"@zendaya",
+"@victoriassecret",
+"@iamcardib",
+"@champagnepapi",
+"@shakira",
+"@chrisbrownofficial",
+"@kingjames",
+"@billieeilish",
+"@vindiesel",
+"@virat.kohli",
+"@davidbeckham",
+"@championsleague",
+"@nasa",
+"@justintimberlake",
+"@emmawatson",
+"@shawnmendes",
+"@gigihadid",
+"@priyankachopra",
+"@9gag",
+"@ronaldinho",
+"@maluma",
+"@camila_cabello",
+"@deepikapadukone"];
+var followersInMillions =[
+  "353",
+  "224",
+  "190",
+  "187",
+  "181",
+  "180",
+  "175",
+  "155",
+  "148",
+  "139",
+  "139",
+  "138",
+  "134",
+  "131",
+  "123",
+  "116",
+  "114",
+  "114",
+  "110",
+  "99",
+  "94",
+  "93",
+  "90",
+  "88",
+  "86",
+  "85",
+  "83",
+  "71",
+  "68",
+  "68",
+  "68",
+  "67",
+  "66",
+  "66",
+  "64",
+  "64",
+  "63",
+  "63",
+  "59",
+  "59",
+  "59",
+  "57",
+  "56",
+  "54",
+  "53",
+  "53",
+  "51",
+  "51",
+  "50",
+  "49"];
+  var profession = [
+    "Social media platform",
+    "Footballer",
+    "Musician and actress",
+    "Actor and professional wrestler",
+    "Television personality and businesswoman",
+    "Musician and actress",
+    "Television personality and businesswoman",
+    "Footballer",
+    "Musician",
+    "Footballer",
+    "Musician",
+    "Magazine",
+    "Musician",
+    "Television personality and model",
+    "Musician and actress",
+    "Musician",
+    "Sportswear multinational",
+    "Television personality and businesswoman",
+    "Musician and actress",
+    "Musician",
+    "Television personality",
+    "Comedian and actor",
+    "Comedian and television personality",
+    "Football club",
+    "Football club",
+    "Musician and actress",
+    "Musician and businesswoman",
+    "Actress and musician",
+    "Clothing brand",
+    "Musician",
+    "Musician",
+    "Musician",
+    "Musician",
+    "Basketball player",
+    "Musician",
+    "Actor",
+    "Cricketer",
+    "Footballer",
+    "Club football competition",
+    "Space agency",
+    "Musician and actor",
+    "Actress",
+    "Musician",
+    "Model",
+    "Actress and musician",
+    "Social media platform",
+    "Footballer",
+    "Musician",
+    "Musician",
+    "Actress"];
+function printUser(followers,job){
+  var matches = [];
+for(var i = 0; i < profession.length; i++){
+  if(profession[i].includes(job) && parseFloat(followersInMillions[i]) >= parseFloat(followers)){
+      matches.push(username[i]);
   }
 }
-
-  
-  
-  
-  function followersNum(){
-  console.log(document.getElementById("followers").value);
-  var followersInput = document.getElementById("followers").value;
-  document.getElementById("followersNum").innerHTML =  followersInput + " million";
-  
+if (matches.length == 0){
+  document.getElementById("output").innerHTML = "No one in fits that criteria!!"
   }
+
+  else{
+    document.getElementById("output").innerHTML = matches.join("<br><br>");
+} 
+}
+
+
+function followersNum(){
+var followersInput = document.getElementById("followers").value;
+document.getElementById("followersNum").innerHTML =  followersInput + " million";
+
+}
+
+
+
+
+
 
